@@ -1,2 +1,2 @@
 # centos-ansible
-Dockerfile's for build Centos images with ansible
+Dockerfile's for build Centos images with Ansible
