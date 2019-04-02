@@ -15,7 +15,7 @@ RUN yum clean all && \
         python2-jmespath python-pip sshpass \
         python-devel openssl-devel libselinux-python
 RUN pip install --upgrade pip && \
-    pip install packaging && \
+    pip install packaging
 RUN mkdir /etc/ansible/
 RUN echo -e '[local]\nlocalhost\n' > /etc/ansible/hosts
 RUN echo -e '[defaults]\nstdout_callback = yaml\n' > /etc/ansible/ansible.cfg
