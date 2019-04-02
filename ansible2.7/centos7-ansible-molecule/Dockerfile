@@ -10,13 +10,16 @@ RUN yum clean all && \
     yum -y update && \
     yum -y install epel-release && \
     yum -y install git make gcc PyYAML python-abi python-crypto \
-                   python-httplib2 python-jinja2 python-keyczar \
-                   python-paramiko python-setuptools python-six \
-                   python2-jmespath python-pip sshpass \
-                   python-devel openssl-devel libselinux-python
+        python-httplib2 python-jinja2 python-keyczar \
+        python-paramiko python-setuptools python-six \
+        python2-jmespath python-pip sshpass \
+        python-devel openssl-devel libselinux-python && \
+    yum -y remove PyYAML
 RUN pip install --upgrade pip && \
     pip install packaging && \
-    pip install molecule
+    pip install idna==2.8 && \
+    pip install --ignore-installed requests && \
+    pip install molecule==2.20.0
 RUN mkdir /etc/ansible/
 RUN echo -e '[local]\nlocalhost\n' > /etc/ansible/hosts
 RUN echo -e '[defaults]\nstdout_callback = yaml\n' > /etc/ansible/ansible.cfg
