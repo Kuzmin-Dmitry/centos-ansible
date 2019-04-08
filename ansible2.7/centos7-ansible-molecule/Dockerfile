@@ -6,8 +6,7 @@ MAINTAINER Dzmitry Kuzmin <kuzmin.mail@gmail.com>
 LABEL ansible_version="v2.7.9"
 LABEL centos_version="7.6.1810"
 
-RUN yum clean all && \
-    yum -y update && \
+RUN yum -y update && \
     yum -y install epel-release && \
     yum -y install git make gcc PyYAML python-abi python-crypto \
         python-httplib2 python-jinja2 python-keyczar \
